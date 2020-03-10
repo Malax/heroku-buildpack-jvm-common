@@ -93,7 +93,7 @@ install_jdk() {
   local key="${4:-${bpDir}/.gnupg/lang-jvm.asc}"
   local tarball="/tmp/jdk.tgz"
 
-  curl --retry 3 --silent --show-error --location "${url}" --output "${tarball}"
+  curl --retry 3 --show-error --location "${url}" --output "${tarball}"
 
   if [ "${HEROKU_GPG_VALIDATION:-0}" != "1" ]; then
     _jvm_mcount "gpg.verify.skip"

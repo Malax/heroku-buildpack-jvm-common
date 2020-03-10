@@ -5,6 +5,9 @@ set -e
 
 # parse args
 export BUILD_DIR=$1
+export CACHE_DIR=$2
+
+ls -lah $CACHE_DIR
 
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 . $BIN_DIR/java

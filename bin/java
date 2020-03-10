@@ -10,7 +10,12 @@ if [ -f "${JVM_COMMON_DIR}/lib/jvm.sh" ]; then source "${JVM_COMMON_DIR}/lib/jvm
 install_java_with_overlay() {
   local buildDir="${1}"
   local cacheDir="${2:-$(mktemp -d)}"
+
   if [ ! -f "${buildDir}/.jdk/bin/java" ]; then
+    echo "=================================================="
+    echo "REINSTALL!"
+    echo "=================================================="
+    
     local jdkVersion=$(get_jdk_version ${buildDir})
     local jdkUrl=$(_get_jdk_url_with_default "${jdkVersion}")
     _jvm_mcount "version.${jdkVersion}"
